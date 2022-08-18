@@ -14,6 +14,7 @@ public struct CustomVector2
         this.y = y;
     }
 
+    #region"Metodos de la clase"
     /// <summary>
     /// Dibuja en la vista de Scene el vector
     /// </summary>
@@ -23,29 +24,40 @@ public struct CustomVector2
     }
 
     /// <summary>
-    /// Dibuja en la vista de Scene el vector pasándole como parámetro otro color
+    /// Dibuja en la vista de Scene el vector con un color especificado
     /// </summary>
+    /// <param name="color">El color con el que se quiere representar el vector</param>
     public void Draw(Color color)
     {
         Debug.DrawLine(Vector3.zero, new Vector3(x, y, 0), color);
     }
 
+    /// <summary>
+    /// Dibuja en la vida se Scene el vector con base en otro origen distinto del origen del mundo
+    /// </summary>
+    /// <param name="origin">El vector con el que se reemplazará el origen</param>
     public void Draw(CustomVector2 origin)
     {
-        Debug.DrawLine(new Vector3(origin.x, origin.y, 0), new Vector3(x, y, 0));
+        Debug.DrawLine(origin, this + origin);
     }
 
+    /// <summary>
+    /// Dibuja en la vida se Scene el vector con base en otro origen distinto del origen del mundo especificando un color con el que representar el vector
+    /// </summary>
+    /// <param name="origin">El color con el que se quiere representar el vector</param>
+    /// <param name="color">El vector con el que se reemplazará el origen</param>
     public void Draw(CustomVector2 origin, Color color)
     {
-        Debug.DrawLine(new Vector3(origin.x, origin.y, 0), new Vector3(x + origin.x, y + origin.y, 0), color);
+        Debug.DrawLine(origin, this + origin, color);
     }
 
     public static CustomVector2 Lerp(CustomVector2 vector1, CustomVector2 vector2, float factor)
     {
-        return vector1 + (vector2 - vector1) * factor;
-        
+        return vector1 + (vector2 - vector1) * factor;       
     }
+    #endregion
 
+    #region"Operadores"
     public static CustomVector2 operator +(CustomVector2 a, CustomVector2 b)
     {
         return new CustomVector2(a.x + b.x, a.y + b.y);
@@ -65,7 +77,9 @@ public struct CustomVector2
     {
         return new CustomVector2(a.x * b, a.y * b);
     }
+    #endregion
 
+    #region"Convertores implicitos"
     public static implicit operator Vector2(CustomVector2 a)
     {
         return new Vector2(a.x, a.y);
@@ -75,4 +89,15 @@ public struct CustomVector2
     {
         return new Vector3(a.x, a.y, 0);
     } 
+
+    public static implicit operator CustomVector2(Vector3 a)
+    {
+        return new CustomVector2(a.x, a.y);
+    }
+
+    public static implicit operator CustomVector2(Vector2 a)
+    {
+        return new CustomVector2(a.x, a.y);
+    }
+    #endregion
 }
