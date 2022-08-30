@@ -55,6 +55,32 @@ public struct CustomVector2
     {
         return vector1 + (vector2 - vector1) * factor;       
     }
+
+    public float Magnitude()
+    {
+        return Mathf.Sqrt((this.x * this.x) + (this.y * this.y));
+    }
+
+    public void Normalized()
+    {
+        if (magnitude < float.Epsilon) this = new CustomVector2(0, 0);
+        this = this * (1/this.magnitude);
+    }
+    #endregion
+
+    #region"Propiedades"
+
+    public float magnitude { get => Mathf.Sqrt((this.x * this.x) + (this.y * this.y)); }
+
+    public Vector2 normalized 
+    {
+        get
+        {
+            if (magnitude < float.Epsilon) return new CustomVector2(0, 0);
+            return this * (1 / this.magnitude);
+        }
+    }
+
     #endregion
 
     #region"Operadores"

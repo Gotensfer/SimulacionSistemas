@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] CustomVector2 position;
     [SerializeField] CustomVector2 aceleracion;
-    CustomVector2 Displacement;
     [SerializeField] CustomVector2 velocity;
     [SerializeField] Transform Target;
 
@@ -24,11 +23,8 @@ public class Movement : MonoBehaviour
     }
     public void Move()
     {
-        // Displacement =velocity*Time.deltaTime;
-        Displacement = velocity * Time.deltaTime;
         velocity = velocity + aceleracion * Time.deltaTime;
-        position = position + Displacement;
-
+        position = position + velocity * Time.deltaTime;
         transform.position = position;
 
         aceleracion = Target.position - transform.position;
