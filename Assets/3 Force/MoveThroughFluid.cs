@@ -41,14 +41,13 @@ public class MoveThroughFluid : MonoBehaviour
 
         weight = mass * gravity;
         weightForce = new CustomVector2(0, weight);
-
-        dragForce = -(0.5f) * (velocity.magnitude * velocity.magnitude) * frontalArea * waterDragCoefficient * velocity.normalized;
-
+        
         ApplyForce(force);
         ApplyForce(weightForce);
        
         if (position.y < -5)
         {
+            dragForce = -(0.5f) * (velocity.magnitude * velocity.magnitude) * frontalArea * waterDragCoefficient * velocity.normalized;
             ApplyForce(dragForce);
         }
 

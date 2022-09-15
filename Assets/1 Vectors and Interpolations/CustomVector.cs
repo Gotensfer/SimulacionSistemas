@@ -66,6 +66,17 @@ public struct CustomVector2
         if (magnitude < float.Epsilon) this = new CustomVector2(0, 0);
         this = this * (1/this.magnitude);
     }
+
+    public CustomVector2 FromCartesianToPolar()
+    {
+        return new CustomVector2(magnitude, Mathf.Atan(y/x));
+    }
+
+    public CustomVector2 FromPolarToCartesian()
+    {
+        return new CustomVector2(x * Mathf.Cos(y), x * Mathf.Sin(y));
+    }
+
     #endregion
 
     #region"Propiedades"
