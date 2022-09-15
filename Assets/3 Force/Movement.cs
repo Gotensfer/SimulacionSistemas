@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] CustomVector2 position;
     [SerializeField] CustomVector2 aceleracion;
-    [SerializeField] CustomVector2 velocity;
+    public CustomVector2 velocity;
     [SerializeField] Transform Target;
 
     void Start()

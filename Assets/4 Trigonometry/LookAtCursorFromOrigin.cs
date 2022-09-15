@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class LookAtCursorFromOrigin : MonoBehaviour
 {
+    /* Manera vaquera, no tan """"""elegante"""""" pero practicamente igual de eficiente
     Vector3 offsetOrigin;
-
     private void Start()
     {
-        //offsetOrigin = Vector3.zero - transform.position;
         offsetOrigin = transform.position - Vector3.zero;
     }
+    */
 
     void Update()
     {
         Vector4 worldMousePosition = GetWorldMousePosition();
-        float radians = Mathf.Atan2(worldMousePosition.y, worldMousePosition.x); /*- Mathf.PI / 2;*/
+        Vector3 relativeMousePosition = (Vector3)worldMousePosition - transform.position;
+        float radians = Mathf.Atan2(relativeMousePosition.y, relativeMousePosition.x);
         RotateZ(radians);
     }
 
@@ -23,7 +24,7 @@ public class LookAtCursorFromOrigin : MonoBehaviour
     {
         Camera camera = Camera.main;
         Vector3 screenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, camera.nearClipPlane);
-        Vector4 worldPos = Camera.main.ScreenToWorldPoint(screenPos) - offsetOrigin;
+        Vector4 worldPos = Camera.main.ScreenToWorldPoint(screenPos) /* - offsetOrigin */ ;
         print(worldPos);
         return worldPos;
     }
