@@ -46,13 +46,13 @@ public class MoveWithRealPhysics : MonoBehaviour
 
         if (position.x < -5 || position.x > 5)
         {
-            position.x = Mathf.Sign(position.x) * 5;
+            // position.x = Mathf.Sign(position.x) * 5;
             velocity.x *= -1;
             velocity *= dampingFactor;
         }
-        if (position.y < -5 || position.y > 5)
+        if (position.y < -20 || position.y > 5)
         {
-            position.y = Mathf.Sign(position.y) * 5;
+            // position.y = Mathf.Sign(position.y) * 5;
             velocity.y *= -1;
             velocity *= dampingFactor;
         }
