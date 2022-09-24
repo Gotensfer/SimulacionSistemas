@@ -1144,8 +1144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1668997270}
   - component: {fileID: 1668997269}
-  - component: {fileID: 1668997268}
   - component: {fileID: 1668997271}
+  - component: {fileID: 1668997272}
   m_Layer: 0
   m_Name: Jack sparrow's compass (4)
   m_TagString: Untagged
@@ -1153,28 +1153,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1668997268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668997267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd81d7eedf8e6884395762358ab5c7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position:
-    x: 0
-    y: 0
-  aceleracion:
-    x: 0
-    y: 0
-  velocity:
-    x: 4
-    y: 0
-  Target: {fileID: 1745220657}
 --- !u!212 &1668997269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1255,6 +1233,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9436afbeb8f443f4db445d9c286c44de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1668997272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668997267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef02f487262df9d48ad244fb79f7a11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity:
+    x: 0
+    y: 0
+  Target: {fileID: 1745220657}
+  movementType: 1
 --- !u!1 &1745220654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1260,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1745220657}
   - component: {fileID: 1745220656}
-  - component: {fileID: 1745220655}
   m_Layer: 0
   m_Name: Jack sparrow's compass (5)
   m_TagString: Untagged
@@ -1273,28 +1267,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1745220655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745220654}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd81d7eedf8e6884395762358ab5c7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position:
-    x: 0
-    y: 0
-  aceleracion:
-    x: 0
-    y: 0
-  velocity:
-    x: 0
-    y: 0
-  Target: {fileID: 0}
 --- !u!212 &1745220656
 SpriteRenderer:
   m_ObjectHideFlags: 0

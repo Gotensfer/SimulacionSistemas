@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(UniversalMovementTowardsTarget))]
 public class LookAtMoveDirection : MonoBehaviour
 {
-    Movement movement;
+    UniversalMovementTowardsTarget movement;
     CustomVector2 m_Direction;
     float radians;
 
     void Start()
     {
-        movement = GetComponent<Movement>();   
+        movement = GetComponent<UniversalMovementTowardsTarget>();   
     }
 
     void Update()

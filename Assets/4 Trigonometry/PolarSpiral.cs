@@ -30,7 +30,7 @@ public class PolarSpiral : MonoBehaviour
         radAngleAcceleration = Mathf.Deg2Rad * degAngleAcceleration;
     }
 
-    float graceTime = 2;
+    float graceTime = 1;
     float remainingGraceTime;
     bool recentlyChangedDirection;
 
@@ -42,17 +42,18 @@ public class PolarSpiral : MonoBehaviour
             if (remainingGraceTime < 0)
             {
                 recentlyChangedDirection = false;
+                remainingGraceTime = graceTime;
             }
         }
 
-        if (Mathf.Abs(targetObjectForAnimation.position.x) > xTreshhold
-            || Mathf.Abs(targetObjectForAnimation.position.y) > yTreshhold && !recentlyChangedDirection)
+        if ((Mathf.Abs(targetObjectForAnimation.position.x) > xTreshhold
+            || Mathf.Abs(targetObjectForAnimation.position.y) > yTreshhold) && !recentlyChangedDirection)
         {
-            radAngleAcceleration *= -1;
+            // radAngleAcceleration *= -1;
             // radAnglePerSecond *= -1;
 
             radiusAcceleration *= -1;
-            // radiusPerSecond *= -1;
+            radiusPerSecond *= -1;
 
             recentlyChangedDirection = true;
             remainingGraceTime = graceTime;
